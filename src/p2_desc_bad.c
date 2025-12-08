@@ -9,5 +9,14 @@
   ensures (*desc == 0) ==> (n <= 1 || (\exists integer i, j; 0 <= i < j < n && \old(a[i]) <= \old(a[j])));
 */
 void p2_is_strictly_desc(const int *a, int n, int *desc) {
-  /* LLM will generate falsifying implementation here */
+  if (n <= 1) {
+    *desc = 1;
+    return;
+  }
+
+  if (a[0] > a[1]) {
+    *desc = 1;
+  } else {
+    *desc = 0;
+  }
 }

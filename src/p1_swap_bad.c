@@ -12,5 +12,8 @@
   ensures \forall integer i; 0 <= i < n && i != k && i != j ==> a[i] == \old(a[i]);
 */
 void p1_swap(int *a, int n, int k, int j) {
-  /* LLM will generate falsifying implementation here */
+  int tmp = a[k];
+  a[k] = a[j];
+  /* BUG: second assignment writes back into a[k] again */
+  a[k] = tmp;
 }

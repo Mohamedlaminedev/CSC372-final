@@ -1,0 +1,18 @@
+Model: gpt-4o-mini
+Temperature: 0.2 (deterministic run) or 0.6 (more exploratory)
+Base prompt (used for each part, swapping in the appropriate spec and function name):
+
+---
+You are helping me complete a CSC 372 verification assignment. I will give you a C function stub that already contains an ACSL contract. Please fill in ONLY the function body so that the implementation is straightforward C code adhering to standard Frama-C/WP practices. 
+
+Requirements:
+1. Do not remove or edit the ACSL comment block.
+2. Keep the implementation iterative (no recursion) and use simple loops/conditionals as needed.
+3. Add loop invariants/variants if the verification tool would reasonably require them.
+4. Do not introduce extra helper functions or headers; stay within the stub provided.
+5. Follow the intent of the spec precisely; no undefined behavior.
+
+Return ONLY the completed function definition. Assume `#include <stddef.h>` is already present.
+---
+
+For "falsifying" versions we reuse the same prompt but allow a higher temperature (0.6) so the LLM might produce a subtly incorrect implementation. We then keep the first incorrect output that Frama-C does not validate.

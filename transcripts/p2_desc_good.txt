@@ -1,0 +1,68 @@
+Model: gpt-4o-mini
+Temperature: 0.2
+Timestamp: 2025-12-08T10:21:03-07:00
+
+Prompt:
+You are helping me complete a CSC 372 verification assignment. I will give you a C function stub that already contains an ACSL contract. Please fill in ONLY the function body so that the implementation is straightforward C code adhering to standard Frama-C/WP practices.
+
+Requirements:
+1. Do not remove or edit the ACSL comment block.
+2. Keep the implementation iterative (no recursion) and use simple loops/conditionals as needed.
+3. Add loop invariants/variants if the verification tool would reasonably require them.
+4. Do not introduce extra helper functions or headers; stay within the stub provided.
+5. Follow the intent of the spec precisely; no undefined behavior.
+
+Return ONLY the completed function definition. Assume #include <stddef.h> is already present.
+
+```
+#include <stddef.h>
+
+/*@
+  requires n >= 0;
+  requires \valid(a + (0 .. n-1));
+  requires \valid(desc);
+  assigns *desc;
+  ensures (*desc == 1) ==> (\forall integer i, j; 0 <= i < j < n ==> \old(a[i]) > \old(a[j]));
+  ensures (*desc == 0) ==> (n <= 1 || (\exists integer i, j; 0 <= i < j < n && \old(a[i]) <= \old(a[j])));
+*/
+void p2_is_strictly_desc(const int *a, int n, int *desc) {
+  // TODO
+}
+```
+
+Response:
+```
+void p2_is_strictly_desc(const int *a, int n, int *desc) {
+  if (n <= 1) {
+    *desc = 1;
+    return;
+  }
+
+  int strictly = 1;
+  int i = 0;
+  /*@ loop invariant 0 <= i <= n;
+      loop invariant strictly == 1 ==>
+        (\forall integer p, q; 0 <= p < q < i ==> a[p] > a[q]);
+      loop assigns i, strictly;
+      loop variant n - i;
+  */
+  while (i < n && strictly) {
+    int j = i + 1;
+    /*@ loop invariant i + 1 <= j <= n;
+        loop invariant strictly == 1 ==>
+          (\forall integer q; i < q < j ==> a[i] > a[q]);
+        loop assigns j, strictly;
+        loop variant n - j;
+    */
+    while (j < n && strictly) {
+      if (a[i] <= a[j]) {
+        strictly = 0;
+      }
+      j++;
+    }
+    i++;
+  }
+
+  *desc = strictly;
+}
+```

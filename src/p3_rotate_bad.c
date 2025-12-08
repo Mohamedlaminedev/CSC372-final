@@ -8,5 +8,11 @@
   ensures a[n - 1] == \old(a[0]);
 */
 void p3_rotate_left(int *a, int n) {
-  /* LLM will generate falsifying implementation here */
+  int i = 0;
+  while (i < n - 1) {
+    a[i] = a[i + 1];
+    i++;
+  }
+  /* BUG: forgets original first element; copies last-1 value instead */
+  a[n - 1] = a[n - 2];
 }

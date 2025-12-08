@@ -7,5 +7,11 @@
   ensures \forall integer k; 0 <= k < n ==> ((\old(a[k]) <= 0 ==> a[k] == 0) && (\old(a[k]) > 0 ==> a[k] == k));
 */
 void p4_transform(int *a, int n) {
-  /* LLM will generate falsifying implementation here */
+  for (int k = 0; k < n; ++k) {
+    if (a[k] < 0) {
+      a[k] = 0;
+    } else {
+      a[k] = k;
+    }
+  }
 }

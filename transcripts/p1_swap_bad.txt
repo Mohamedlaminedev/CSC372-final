@@ -1,0 +1,43 @@
+Model: gpt-4o-mini
+Temperature: 0.6
+Timestamp: 2025-12-08T10:09:44-07:00
+
+Prompt:
+You are helping me complete a CSC 372 verification assignment. I will give you a C function stub that already contains an ACSL contract. Please fill in ONLY the function body so that the implementation is straightforward C code adhering to standard Frama-C/WP practices.
+
+Requirements:
+1. Do not remove or edit the ACSL comment block.
+2. Keep the implementation iterative (no recursion) and use simple loops/conditionals as needed.
+3. Add loop invariants/variants if the verification tool would reasonably require them.
+4. Do not introduce extra helper functions or headers; stay within the stub provided.
+5. Follow the intent of the spec precisely; no undefined behavior.
+
+Return ONLY the completed function definition. Assume #include <stddef.h> is already present.
+
+```
+#include <stddef.h>
+
+/*@
+  requires n > 1;
+  requires 0 <= k < n;
+  requires 0 <= j < n;
+  requires k != j;
+  requires \valid(a + (0 .. n-1));
+  assigns a[k], a[j];
+  ensures a[k] == \old(a[j]);
+  ensures a[j] == \old(a[k]);
+  ensures \forall integer i; 0 <= i < n && i != k && i != j ==> a[i] == \old(a[i]);
+*/
+void p1_swap(int *a, int n, int k, int j) {
+  // TODO
+}
+```
+
+Response:
+```
+void p1_swap(int *a, int n, int k, int j) {
+  int tmp = a[k];
+  a[k] = a[j];
+  a[k] = tmp;
+}
+```

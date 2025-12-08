@@ -12,5 +12,9 @@
   ensures \forall integer i; 0 <= i < n && i != k && i != j ==> a[i] == \old(a[i]);
 */
 void p1_swap(int *a, int n, int k, int j) {
-  /* LLM will generate satisfying implementation here */
+  /*@ assert 0 <= k < n && 0 <= j < n && k != j; */
+  /* simple XOR-swap keeps everything else untouched */
+  a[k] ^= a[j];
+  a[j] ^= a[k];
+  a[k] ^= a[j];
 }
