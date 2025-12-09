@@ -1,0 +1,54 @@
+[kernel] Parsing src/p3_rotate_good.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] Warning: Missing RTE guards
+[wp] 13 goals scheduled
+[wp] [Timeout] typed_p3_rotate_left_loop_invariant_2_preserved (Qed 3ms) (Alt-Ergo)
+[wp] Proved goals:   14 / 15
+  Terminating:       1
+  Unreachable:       1
+  Qed:               9 (3ms-0.87ms-3ms)
+  Alt-Ergo 2.6.2:    3 (11ms-17ms)
+  Timeout:           1
+[report] Computing properties status...
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'p3_rotate_left'
+--------------------------------------------------------------------------------
+
+[ Partial ] Post-condition (file src/p3_rotate_good.c, line 7)
+            By Wp.typed, with pending:
+             - Invariant (file src/p3_rotate_good.c, line 14)
+[ Partial ] Post-condition (file src/p3_rotate_good.c, line 8)
+            By Wp.typed, with pending:
+             - Invariant (file src/p3_rotate_good.c, line 14)
+[  Valid  ] Exit-condition (generated)
+            by Unreachable Annotations.
+[ Partial ] Termination-condition (generated)
+            By Trivial Termination, with pending:
+             - Invariant (file src/p3_rotate_good.c, line 14)
+[ Partial ] Loop assigns (file src/p3_rotate_good.c, line 15)
+            By Wp.typed, with pending:
+             - Invariant (file src/p3_rotate_good.c, line 14)
+[ Partial ] Assigns (file src/p3_rotate_good.c, line 6)
+            By Wp.typed, with pending:
+             - Invariant (file src/p3_rotate_good.c, line 14)
+[ Partial ] Loop variant at loop (file src/p3_rotate_good.c, line 18)
+            By Wp.typed, with pending:
+             - Invariant (file src/p3_rotate_good.c, line 14)
+[ Partial ] Invariant (file src/p3_rotate_good.c, line 13)
+            By Wp.typed, with pending:
+             - Invariant (file src/p3_rotate_good.c, line 14)
+[    -    ] Invariant (file src/p3_rotate_good.c, line 14)
+            tried with Wp.typed.
+[ Partial ] Default behavior
+            By Frama-C kernel, with pending:
+             - Invariant (file src/p3_rotate_good.c, line 14)
+
+--------------------------------------------------------------------------------
+--- Status Report Summary
+--------------------------------------------------------------------------------
+     1 Completely validated
+     8 Locally validated
+     1 To be validated
+    10 Total
+--------------------------------------------------------------------------------

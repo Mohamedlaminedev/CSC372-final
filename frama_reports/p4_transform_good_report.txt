@@ -1,0 +1,42 @@
+[kernel] Parsing src/p4_transform_good.c (with preprocessing)
+[wp] Running WP plugin...
+[wp] Warning: Missing RTE guards
+[wp] 14 goals scheduled
+[wp] Proved goals:   16 / 16
+  Terminating:       1
+  Unreachable:       1
+  Qed:               9 (3ms-2ms-10ms)
+  Alt-Ergo 2.6.2:    5 (13ms-22ms)
+[report] Computing properties status...
+
+--------------------------------------------------------------------------------
+--- Properties of Function 'p4_transform'
+--------------------------------------------------------------------------------
+
+[  Valid  ] Post-condition (file src/p4_transform_good.c, line 7)
+            by Wp.typed.
+[  Valid  ] Exit-condition (generated)
+            by Unreachable Annotations.
+[  Valid  ] Termination-condition (generated)
+            by Trivial Termination.
+[  Valid  ] Loop assigns (file src/p4_transform_good.c, line 16)
+            by Wp.typed.
+[  Valid  ] Assigns (file src/p4_transform_good.c, line 6)
+            by Wp.typed.
+[  Valid  ] Loop variant at loop (file src/p4_transform_good.c, line 19)
+            by Wp.typed.
+[  Valid  ] Invariant (file src/p4_transform_good.c, line 11)
+            by Wp.typed.
+[  Valid  ] Invariant (file src/p4_transform_good.c, line 12)
+            by Wp.typed.
+[  Valid  ] Invariant (file src/p4_transform_good.c, line 15)
+            by Wp.typed.
+[  Valid  ] Default behavior
+            by Frama-C kernel.
+
+--------------------------------------------------------------------------------
+--- Status Report Summary
+--------------------------------------------------------------------------------
+    10 Completely validated
+    10 Total
+--------------------------------------------------------------------------------

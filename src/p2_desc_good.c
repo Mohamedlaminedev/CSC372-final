@@ -15,26 +15,16 @@ void p2_is_strictly_desc(const int *a, int n, int *desc) {
   }
 
   int strictly = 1;
-  int i = 0;
-  /*@ loop invariant 0 <= i <= n;
+  int i = 1;
+  /*@ loop invariant 1 <= i <= n;
       loop invariant strictly == 1 ==>
-        (\\forall integer p, q; 0 <= p < q < i ==> a[p] > a[q]);
+        (\forall integer k; 1 <= k < i ==> a[k - 1] > a[k]);
       loop assigns i, strictly;
       loop variant n - i;
   */
   while (i < n && strictly) {
-    int j = i + 1;
-    /*@ loop invariant i + 1 <= j <= n;
-        loop invariant strictly == 1 ==>
-          (\\forall integer q; i < q < j ==> a[i] > a[q]);
-        loop assigns j, strictly;
-        loop variant n - j;
-    */
-    while (j < n && strictly) {
-      if (a[i] <= a[j]) {
-        strictly = 0;
-      }
-      j++;
+    if (a[i - 1] <= a[i]) {
+      strictly = 0;
     }
     i++;
   }

@@ -9,9 +9,10 @@
 void p4_transform(int *a, int n) {
   int k = 0;
   /*@ loop invariant 0 <= k <= n;
-      loop invariant \\forall integer i; 0 <= i < k ==>
-        ((\\at(a[i], Pre) <= 0 ==> a[i] == 0) &&
-         (\\at(a[i], Pre) > 0 ==> a[i] == i));
+      loop invariant \forall integer i; 0 <= i < k ==>
+        ((\at(a[i], Pre) <= 0 ==> a[i] == 0) &&
+         (\at(a[i], Pre) > 0 ==> a[i] == i));
+      loop invariant \forall integer i; k <= i < n ==> a[i] == \at(a[i], Pre);
       loop assigns k, a[0 .. n - 1];
       loop variant n - k;
   */
