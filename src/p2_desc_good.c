@@ -32,7 +32,7 @@ void p2_is_strictly_desc(const int *a, int n, int *desc) {
         w1 = i - 1;
         w2 = i;
         ok = 0;
-        /*@ assert \at(a[w1],Pre) <= \at(a[w2],Pre); */
+        /*@ assert \at(a[\at(w1,Here)],Pre) <= \at(a[\at(w2,Here)],Pre); */
       }
     }
     i++;

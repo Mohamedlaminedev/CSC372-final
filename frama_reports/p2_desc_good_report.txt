@@ -1,46 +1,46 @@
 [kernel] Parsing src/p2_desc_good.c (with preprocessing)
 [wp] Running WP plugin...
 [wp] Warning: Missing RTE guards
-[wp] 12 goals scheduled
-[wp] [Timeout] typed_p2_is_strictly_desc_ensures_2 (Qed 11ms) (Alt-Ergo)
-[wp] [Timeout] typed_p2_is_strictly_desc_ensures (Qed 12ms) (Alt-Ergo)
-[wp] Proved goals:   12 / 14
+[wp] 15 goals scheduled
+[wp] Proved goals:   17 / 17
   Terminating:       1
   Unreachable:       1
-  Qed:               9 (3ms-2ms-12ms)
-  Alt-Ergo 2.6.2:    1 (17ms)
-  Timeout:           2
+  Qed:              12 (5ms-3ms-32ms)
+  Alt-Ergo 2.6.2:    3 (13ms-24ms)
 [report] Computing properties status...
 
 --------------------------------------------------------------------------------
 --- Properties of Function 'p2_is_strictly_desc'
 --------------------------------------------------------------------------------
 
-[    -    ] Post-condition (file src/p2_desc_good.c, line 8)
-            tried with Wp.typed.
-[    -    ] Post-condition (file src/p2_desc_good.c, line 9)
-            tried with Wp.typed.
+[  Valid  ] Post-condition (file src/p2_desc_good.c, line 8)
+            by Wp.typed.
+[  Valid  ] Post-condition (file src/p2_desc_good.c, line 9)
+            by Wp.typed.
 [  Valid  ] Exit-condition (generated)
             by Unreachable Annotations.
 [  Valid  ] Termination-condition (generated)
             by Trivial Termination.
-[  Valid  ] Loop assigns (file src/p2_desc_good.c, line 22)
+[  Valid  ] Loop assigns (file src/p2_desc_good.c, line 26)
             by Wp.typed.
 [  Valid  ] Assigns (file src/p2_desc_good.c, line 7)
             by Wp.typed.
-[  Valid  ] Loop variant at loop (file src/p2_desc_good.c, line 25)
+[  Valid  ] Loop variant at loop (file src/p2_desc_good.c, line 29)
             by Wp.typed.
-[  Valid  ] Invariant (file src/p2_desc_good.c, line 19)
+[  Valid  ] Invariant (file src/p2_desc_good.c, line 23)
             by Wp.typed.
-[  Valid  ] Invariant (file src/p2_desc_good.c, line 20)
+[  Valid  ] Invariant (file src/p2_desc_good.c, line 24)
             by Wp.typed.
-[    -    ] Default behavior
-            tried with Frama-C kernel.
+[  Valid  ] Invariant (file src/p2_desc_good.c, line 25)
+            by Wp.typed.
+[  Valid  ] Assertion (file src/p2_desc_good.c, line 35)
+            by Wp.typed.
+[  Valid  ] Default behavior
+            by Frama-C kernel.
 
 --------------------------------------------------------------------------------
 --- Status Report Summary
 --------------------------------------------------------------------------------
-     7 Completely validated
-     3 To be validated
-    10 Total
+    12 Completely validated
+    12 Total
 --------------------------------------------------------------------------------
