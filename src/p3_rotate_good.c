@@ -10,14 +10,18 @@
 void p3_rotate_left(int *a, int n) {
   int first = a[0];
   int i = 0;
-  /*@ loop invariant 0 <= i <= n - 1;
-      loop invariant \forall integer k; 0 <= k < i ==> a[k] == \at(a[k + 1], Pre);
-      loop assigns i, a[0 .. n - 2];
-      loop variant n - 1 - i;
+
+  /*@
+    loop invariant 0 <= i <= n - 1;
+    loop invariant \forall integer k; 0 <= k < i ==> a[k] == \at(a[k + 1],Pre);
+    loop invariant \forall integer k; i <= k < n ==> a[k] == \at(a[k],Pre);
+    loop assigns i, a[0 .. n - 2];
+    loop variant n - 1 - i;
   */
   while (i < n - 1) {
     a[i] = a[i + 1];
     i++;
   }
+
   a[n - 1] = first;
 }

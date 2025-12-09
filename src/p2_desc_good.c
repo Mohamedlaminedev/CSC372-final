@@ -14,20 +14,29 @@ void p2_is_strictly_desc(const int *a, int n, int *desc) {
     return;
   }
 
-  int strictly = 1;
   int i = 1;
-  /*@ loop invariant 1 <= i <= n;
-      loop invariant strictly == 1 ==>
-        (\forall integer k; 1 <= k < i ==> a[k - 1] > a[k]);
-      loop assigns i, strictly;
-      loop variant n - i;
+  int ok = 1;
+  int w1 = 0;
+  int w2 = 0;
+
+  /*@
+    loop invariant 1 <= i <= n;
+    loop invariant ok == 1 ==> (\forall integer p, q; 0 <= p < q < i ==> \at(a[p],Pre) > \at(a[q],Pre));
+    loop invariant ok == 0 ==> (\exists integer p, q; 0 <= p < q < i && \at(a[p],Pre) <= \at(a[q],Pre));
+    loop assigns i, ok, w1, w2;
+    loop variant n - i;
   */
-  while (i < n && strictly) {
-    if (a[i - 1] <= a[i]) {
-      strictly = 0;
+  while (i < n) {
+    if (ok) {
+      if (a[i - 1] <= a[i]) {
+        w1 = i - 1;
+        w2 = i;
+        ok = 0;
+        /*@ assert \at(a[w1],Pre) <= \at(a[w2],Pre); */
+      }
     }
     i++;
   }
 
-  *desc = strictly;
+  *desc = ok;
 }
