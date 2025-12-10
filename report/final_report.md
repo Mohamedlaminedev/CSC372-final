@@ -51,7 +51,6 @@ The satisfying version uses XOR-swap with an explicit assertion on the indices; 
 ### Transcript – Satisfying
 ````
 Model: gpt-4o-mini
-Temperature: 0.2
 Timestamp: 2025-12-08T10:05:12-07:00
 
 Prompt:
@@ -99,7 +98,6 @@ void p1_swap(int *a, int n, int k, int j) {
 ### Transcript – Falsifying
 ````
 Model: gpt-4o-mini
-Temperature: 0.6
 Timestamp: 2025-12-08T10:09:44-07:00
 
 Prompt:
@@ -291,7 +289,6 @@ The satisfying attempt now records witness indices the moment a non-descending p
 ### Transcript – Satisfying
 ````
 Model: gpt-4o-mini
-Temperature: 0.2
 Timestamp: 2025-12-08T13:12:05-07:00
 
 Prompt:
@@ -362,7 +359,6 @@ void p2_is_strictly_desc(const int *a, int n, int *desc) {
 ### Transcript – Falsifying
 ````
 Model: gpt-4o-mini
-Temperature: 0.6
 Timestamp: 2025-12-08T10:25:18-07:00
 
 Prompt:
@@ -590,7 +586,6 @@ The satisfying version now tracks both the processed prefix and untouched suffix
 ### Transcript – Satisfying
 ````
 Model: gpt-4o-mini
-Temperature: 0.2
 Timestamp: 2025-12-08T13:18:47-07:00
 
 Prompt:
@@ -646,7 +641,6 @@ void p3_rotate_left(int *a, int n) {
 ### Transcript – Falsifying
 ````
 Model: gpt-4o-mini
-Temperature: 0.6
 Timestamp: 2025-12-08T10:37:19-07:00
 
 Prompt:
@@ -862,7 +856,6 @@ The satisfying version maintains both prefix/suffix invariants so WP discharges 
 ### Transcript – Satisfying
 ````
 Model: gpt-4o-mini
-Temperature: 0.2
 Timestamp: 2025-12-08T11:39:02-07:00
 
 Prompt:
@@ -919,7 +912,6 @@ void p4_transform(int *a, int n) {
 ### Transcript – Falsifying
 ````
 Model: gpt-4o-mini
-Temperature: 0.6
 Timestamp: 2025-12-08T10:47:33-07:00
 
 Prompt:
