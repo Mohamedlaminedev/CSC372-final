@@ -1,4 +1,4 @@
-Hey team (Mohamed, Andrew, Ravshanbek Temurbekov, Carlo Rogielo Utrilla Aquino),
+Hey team (Mohamed, Andrew Huynh, Ravshanbek Temurbekov, Carlo Rogielo Utrilla Aquino),
 
 We’ve got four specs from the CSC 372 final (swap, descending flag, left rotation, transform). For each one, we need two C versions: a “good” one that meets the spec and a “bad” one that fails. The trick is we’re working with Frama-C and ACSL, so every file has the spec at the top, the code below, and we run `frama-c -wp <file>.c -then -report` to see if it passes.
 

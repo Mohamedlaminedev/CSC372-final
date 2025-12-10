@@ -5,7 +5,7 @@
 - **Deliverable:** Single PDF report uploaded to D2L (deadline: Dec 10, 2025)
 - **Team:**
   - Mohamed Diakhate
-  - Andrew
+  - Andrew Huynh
   - Ravshanbek Temurbekov
   - Carlo Rogielo Utrilla Aquino
 
