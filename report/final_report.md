@@ -6,10 +6,8 @@
 - **Team:**
   - Mohamed Diakhate
   - Andrew
-  - [Teammate 3 – add name]
-  - [Teammate 4 – add name]
-
-> Update the teammate placeholders before exporting to PDF.
+  - Ravshanbek Temurbekov
+  - Carlo Rogielo Utrilla Aquino
 
 ## Introduction
 We investigated how a large language model (LLM) can synthesize C implementations that satisfy or violate ACSL specifications when analyzed with Frama-C’s WP plug-in. For each part (P1–P4) we produced a satisfying snippet that should pass all verification obligations and a falsifying snippet that fails at least one goal. Every interaction with the LLM (prompt, reply, timestamp, model, temperature) is recorded, and the resulting code plus Frama-C reports are included verbatim as required by the assignment.
