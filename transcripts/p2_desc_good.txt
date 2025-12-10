@@ -1,5 +1,4 @@
-Model: gpt-4o-mini
-Temperature: 0.2
+Model: gpt-4o-mini (ChatGPT web, default settings)
 Timestamp: 2025-12-08T13:12:05-07:00
 
 Prompt:

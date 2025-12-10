@@ -19,8 +19,7 @@ We ran `frama-c -wp` on each file and saved the reports. We're on macOS and inst
 
 ## Base Prompt Template
 ````
-Model: gpt-4o-mini
-Temperature: 0.2 (deterministic run) or 0.6 (more exploratory)
+Model: gpt-4o-mini (ChatGPT web interface, default settings)
 Base prompt (used for each part, swapping in the appropriate spec and function name):
 
 ---
