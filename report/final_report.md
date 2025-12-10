@@ -13,7 +13,7 @@
 We used an LLM to help write C code that either satisfies or violates the given ACSL specs, then checked everything with Frama-C. For each of the four parts we made two versions: one that should pass verification and one that should fail. We saved all our conversations with the LLM (prompts, responses, timestamps, model info) and included the code and Frama-C reports in this write-up.
 
 ## Methodology
-We used `gpt-4o-mini` via the ChatGPT web interface (default settings). For satisfying versions, we gave the full ACSL stub and clear instructions. For falsifying versions, we reused the same base prompt but kept the first response that had a plausible bug (or was less detailed) so that Frama-C would flag it. This matches the assignment goal of showing both a passing and a failing implementation.
+We used `gpt-4o-mini` via the ChatGPT web interface (default settings). For satisfying versions, we gave the full ACSL stub and clear instructions. For falsifying versions, we reused the same base prompt and simply kept the first response that contained a plausible mistake instead of fixing it, so Frama-C would flag it. That keeps the prompts consistent while still producing a failing implementation, as the assignment requires.
 
 We ran `frama-c -wp` on each file and saved the reports. We're on macOS and installed Frama-C through OPAM with Alt-Ergo as the prover.
 
