@@ -1107,8 +1107,8 @@ void p4_transform(int *a, int n) {
 
 ---
 
-## Summary & Submission Notes
-- P1 and P4 satisfying snippets are fully validated; P2 and P3 satisfying snippets are documented with WP timeouts (per assignment guidance).
-- Every falsifying snippet exhibits at least one failing goal, fulfilling the requirement to show a counterexample.
-- Transcripts, final code, and Frama-C reports are copied directly as required (no screenshots).
-- To submit: update teammate names, export this Markdown as PDF (`pandoc report/final_report.md -o report/final_report.pdf`), verify the PDF lists all prompts/responses, code, and reports, then upload to D2L before the deadline.
+## Summary
+
+We completed all four parts of the assignment. P1 and P4 passed all Frama-C checks completely. For P2 and P3, we got most of the way there but Alt-Ergo timed out on some of the quantified postconditions even though we added stronger invariants. The assignment says partial credit is fine when the prover can't finish, so we documented those timeouts honestly.
+
+All four "bad" versions failed at least one verification goal as expected, which shows Frama-C caught the bugs we introduced. We kept all our LLM conversations logged with timestamps and included the exact code and Frama-C outputs in this report.
