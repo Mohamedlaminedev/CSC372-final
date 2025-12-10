@@ -10,14 +10,12 @@
   - Carlo Rogielo Utrilla Aquino
 
 ## Introduction
-We investigated how a large language model (LLM) can synthesize C implementations that satisfy or violate ACSL specifications when analyzed with Frama-C’s WP plug-in. For each part (P1–P4) we produced a satisfying snippet that should pass all verification obligations and a falsifying snippet that fails at least one goal. Every interaction with the LLM (prompt, reply, timestamp, model, temperature) is recorded, and the resulting code plus Frama-C reports are included verbatim as required by the assignment.
+For this project we used an LLM to help write C code that either satisfies or violates the given ACSL specs, then checked everything with Frama-C. For each of the four parts we made two versions: one that should pass verification and one that should fail. We saved all our conversations with the LLM (prompts, responses, timestamps, model settings) and included the code and Frama-C reports in this write-up.
 
 ## Methodology
-- **LLM:** `gpt-4o-mini`
-- **Temperatures:** 0.2 for satisfying runs (deterministic) and 0.6 for falsifying runs (encourage variation)
-- **Prompt workflow:** Prepared ACSL-annotated stubs in `src/` and reused the same base prompt (shown below). Only the temperature changed between satisfying and falsifying attempts.
-- **Verification:** Ran `frama-c -wp src/<file>.c -then -report` and saved the textual reports under `frama_reports/`.
-- **Environment:** macOS 14, Frama-C via OPAM, Alt-Ergo 2.6.2, pandoc for PDF export.
+We used `gpt-4o-mini` for all the code generation. For the "good" versions we set temperature to 0.2 to get more consistent results, and for the "bad" versions we used 0.6 to let the model make mistakes. We wrote the ACSL specs ourselves and gave the LLM the same basic prompt each time (shown below), just changing the temperature.
+
+To verify everything we ran `frama-c -wp` on each file and saved the reports. We're on macOS and installed Frama-C through OPAM with Alt-Ergo as the prover.
 
 ## Base Prompt Template
 ````
